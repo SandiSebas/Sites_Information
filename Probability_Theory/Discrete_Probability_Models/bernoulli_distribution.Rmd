@@ -1,0 +1,48 @@
+---
+title: "Bernoulli Distribution"
+author: "Sebastián Sánchez Sandí"
+date: "2025-07-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Let $X$ be a random variable. If X \~ Bernoulli(p), then it follows a Bernoulli distribution. The probability mass function is given by:
+
+$$
+f(x) = \begin{cases} p^x(1-p)^{1-x} &
+\text{if }  x \in \{0, 1\} \\ 0 &
+\text{if } x \notin \{0, 1\} \end{cases}
+$$
+
+Where $p \in [0, 1]$.
+
+-   $E(X)=p$
+
+-   $Var(X)=p(1-p)$
+
+This distribution models scenarios with only two possible outcomes: successand failure. A common example is flipping a fair coin, where the probability of heads (success) is $\frac{1}{2}$ and the probability of tails (failure) is also $\frac{1}{2}$.
+
+```{r echo=FALSE}
+library(ggplot2)
+
+n = 1
+p <- 0.5
+
+x <- 0:n
+prob <- dbinom(x, size = n, prob = p)
+df <- data.frame(x = x, prob = prob)
+
+labels = c("head", "tail")
+# Plot using ggplot2
+ggplot(df, aes(x = factor(labels), y = prob)) +
+  geom_col(fill = "black") +
+  ylim(0, 1) +
+  labs(title = paste("Bernoulli Proability Mass Function (p =", p, ")"),
+       x = "Number of Successes",
+       y = "P(X = x)") +
+  theme_minimal()
+
+```

@@ -13,11 +13,11 @@ Let $X$ be a random variable. If X \~ Unif(n), then it follows a discrete unifor
 
 $$
 f(x) = \begin{cases} \frac{1}{n} &
-\text{if }  a \leq x \leq b \\ 0 &
-\text{if } x \leq a \lor x \geq b \end{cases}
+\text{if }  x \in \{a, a+1, \dots,b\}\\ 0 &
+\text{if }x \notin \{a, a+1, \dots,b\} \end{cases}
 $$
 
-Where $n = a + b - 1$, and $x \in \{a, a+1, \dots,b\}$
+Where $n = a + b - 1$.
 
 -   $E(X)=\frac{n+1}{2}$
 
