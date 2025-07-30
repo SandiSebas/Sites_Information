@@ -1,0 +1,41 @@
+---
+title: "Uniform Distribution"
+author: "Sebastián Sánchez Sandí"
+date: "2025-07-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Let $X$ be a random variable. If X \~ Unif(n), then it follows a discrete uniform distribution over n equally likely outcomes. The probability mass function is given by:
+
+$$
+f(x) = \begin{cases} \frac{1}{n} &
+\text{if }  a \leq x \leq b \\ 0 &
+\text{if } x \leq a \lor x \geq b \end{cases}
+$$
+
+Where $n = a + b - 1$, and $x \in \{a, a+1, \dots,b\}$
+
+-   $E(X)=\frac{n+1}{2}$
+
+-   $Var(X)=\frac{n^2-1}{12}$
+
+This distribution models scenarios where all possible outcomes are finite and equally likely. A common example is rolling a fair six-sided die, where each face (1 through 6) has an equal probability of $\frac{1}{6}$.
+
+```{r echo=FALSE}
+library(ggplot2)
+
+x <- 1:6
+prob <- rep(1/6, 6)
+df <- data.frame(x = x, prob = prob)
+
+ggplot(df, aes(x = factor(x), y = prob)) +
+  geom_col(fill = "black") +
+  ylim(0, 1) +
+  theme_minimal() +
+  labs(title = "Discrete Uniform Probability Mass Function",
+       x = "X", y = "P(X = x)")
+```
