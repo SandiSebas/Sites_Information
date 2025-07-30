@@ -17,13 +17,6 @@ The Learning Notes section showcases my ability to:
 - Create reproducible and dynamic reports using R Markdown.
 - Visualize data through code-generated plots to aid understanding.
 
-## How to Use
-
-Clone the repository:
-git clone https://github.com/yourusername/learning-notes.git
-Open any .Rmd file in RStudio.
-Knit the document to HTML or PDF to generate the final report with text, code, and visualizations.
-
 ## Technologies
 
 - R
